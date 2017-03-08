@@ -1,29 +1,63 @@
 .top-banner {
-    background-color: #f8f8f8;
-    border-color: #e7e7e7;
+	background-color: #f8f8f8;
+	border-color: #e7e7e7;
 }
 
-
 #logo {
-    width: 80px;
-    margin-top: 0px;
-    margin-left: 175px;
-    margin-top: 30px;
+	width: 80px;
+	margin-top: 0px;
+	margin-left: 175px;
+	margin-top: 30px;
 }
 
 .row {
-    margin-right: -15px;
-    margin-left: -15px;
+	margin-right: -15px;
+	margin-left: -15px;
 }
 
 .col-sm-6 {
-    width: 50%;
-    background-color: ##00FFFF;
+	width: 50%;
+	.center-block();
+	/*position: relative;*/
+/*	background-color: #47b2ef;*/
 }
 
-#feedbox_twit{
-  background-color: ##00FFFF;
+h1 {
+	font-family: Roboto;
+	font-size: 50px;
 }
-#feedbox_twit{
-  background-color: ##663399;
+
+h4 {
+	margin-top: 2.5px;
+/*	display: flex;
+	justify-content:center;
+	align-content:center;
+	flex-direction:column;*/
+}
+
+.banner-detail {
+	margin-left: 300px;
+	margin-top:-80px;
+	color: #666666;
+}
+
+#feedbox{
+	text-align: center;
+	color: white;
+	/*position: absolute;*/
+	/*width: 50%;*/
+	/*top: 50%;*/
+	/*left: 50%;*/
+	height:40px;
+}
+
+.navbar-form{
+ margin-top: 40px;
+}
+
+#percentage_box {
+	text-align: center;
+	margin: auto;
+	width: 100px;
+	/*.center-block();*/
 }
