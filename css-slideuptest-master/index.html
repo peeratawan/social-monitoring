@@ -7,7 +7,7 @@
 <body>
 	<p>test</p>
 	<h2>eiei</h2>
-	<div>
+<!-- 	<div>
 		<ul id="show-list" class="show-list"></ul>
 		<script type="text/javascript">
 		var showlist = $('#show-list');
@@ -38,7 +38,7 @@
 			$('#show-list li.hide').remove()
 		}
 		</script>
-	</div>
+	</div> -->
 	<h2>eiei</h2>
 
 	<div>
@@ -46,22 +46,22 @@
 		<script type="text/javascript">
 		var showlist2 = $('#show-list2');
 		var newLi2 =  $('#show-list2:first');
-		var myTimer2 = setInterval(autoAdd, 2000);
+		var myTimer2 = setInterval(autoAdd2, 2000);
 		var queue2 = [];
 		setStart();
 		function setStart(){
 			for(var i = 0;i<20;i++)
 				queue2.push(i);
 			for(var i =0;i<20;i++){
-				showlist2.prepend('<li class="show">'+queue[i]+' </li>');
+				showlist2.prepend('<li class="show">'+queue2[i]+' </li>');
 			}
 		}
 		outoftwenty2 = $('li:gt(20)');
 		outoftwenty2.addClass("hide");
 		//setTimeout());
-		function autoAdd(){
+		function autoAdd2(){
 			queue2.push('auto');
-			showlist2.prepend('<li>'+queue[(queue.length)-1]+' </li>');
+			showlist2.prepend('<li>'+queue2[(queue2.length)-1]+' </li>');
 			var j2 = queue2.shift();
 			newLi2 =  $('#show-list2 >li:first');
 			setTimeout(function() {
