@@ -18,8 +18,6 @@
 .col-sm-6 {
 	width: 50%;
 	.center-block();
-	/*position: relative;*/
-/*	background-color: #47b2ef;*/
 }
 
 h1 {
@@ -29,10 +27,6 @@ h1 {
 
 h4 {
 	margin-top: 2.5px;
-/*	display: flex;
-	justify-content:center;
-	align-content:center;
-	flex-direction:column;*/
 }
 
 .banner-detail {
@@ -44,10 +38,6 @@ h4 {
 #feedbox{
 	text-align: center;
 	color: white;
-	/*position: absolute;*/
-	/*width: 50%;*/
-	/*top: 50%;*/
-	/*left: 50%;*/
 	height:40px;
 }
 
@@ -59,5 +49,24 @@ h4 {
 	text-align: center;
 	margin: auto;
 	width: 100px;
-	/*.center-block();*/
+}
+
+.show-list > li.hide{
+	display:none;
+	color:yellow;
+}
+.show-list > li{
+	list-style: none;
+	display: block;
+	height: 30px;
+	padding-left: 10px;
+	margin-bottom: 5px;
+	width: 50px;
+	background-color: #edeae1;
+	transition: all 0.4s ease-out;
+	opacity: 0;
+	height: 2em;
+}
+.show-list > li.show{
+	opacity: 1;
 }
