@@ -107,6 +107,7 @@
 			echo "<p class=\"username\">" . $document["username"] . "</p>";
 			echo "<p class=\"screen_name\">@" . $document["screen_name"] . "</p>";
 			echo "<p class=\"text\">" . $document["text"] . "</p>";
+			echo "<p class=\"collected_time\">" . $document["collected_time"] . "</p>";
 			echo "</div>";
 		}
 	?>
