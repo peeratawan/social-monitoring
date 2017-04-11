@@ -41,37 +41,19 @@ $( document ).ready(function() {
   //   $('#show-list2 li.hide').remove()
   // }
   function getData() {
-    if(twitter_count < 9) {
-      $.get('./twitter-stream.php?count=' + twitter_count, function(data) {
-        // console.log(data);
-        data = JSON.parse(data);
-        if(twitter_count < 9) {
-          twitter_count++;
-        }
-        var twitter_data = data['username'];
-        twitter_data += "<br>@" + data['screen_name'];
-        twitter_data += "<br>" + data['text'];
-        twitter_data += "<br>" + data['collected_time'];
-        queue.push(twitter_data);
-        showlist.prepend('<li>'+queue[(queue.length)-1]+' </li>');
-        var j = queue.shift();
-        newLi =  $('#show-list >li:first');
-
-        setTimeout(function() {
-          newLi.addClass("show");
-        }, 100);
-        outoftwenty = $('#show-list >li:gt(9)');
-        outoftwenty.addClass("hide");
-        $('#show-list li.hide').remove()
-      });
-    } else {
-      $.get('./twitter-stream.php?count=' + twitter_count, function(data) {
-        // console.log(data);
-        data = JSON.parse(data);
-        var twitter_data = data['username'];
-        twitter_data += "<br>@" + data['screen_name'];
-        twitter_data += "<br>" + data['text'];
-        twitter_data += "<br>" + data['collected_time'];
+    $.get('./twitter-stream.php?count=' + twitter_count, function(data) {
+      console.log(data);
+      data = JSON.parse(data);
+      if(data === null) {
+        return;
+      }
+      var twitter_data = data['username'];
+      twitter_data += "<br>@" + data['screen_name'];
+      twitter_data += "<br>" + data['text'];
+      twitter_data += "<br>" + data['collected_time'];
+      if(twitter_count < 9) {
+        twitter_count++;
+      } else {
         var newest = $('#show-list > li').first().text();
         var compare = twitter_data;
         while(compare.search('<br>') !== -1) {
@@ -86,19 +68,18 @@ $( document ).ready(function() {
         if(compare === newest || twitter_data.length <= 5 ){
           return;
         }
-        console.log('hello');
-        queue.push(twitter_data);
-        showlist.prepend('<li>'+queue[(queue.length)-1]+' </li>');
-        var j = queue.shift();
-        newLi =  $('#show-list >li:first');
+      }
+      queue.push(twitter_data);
+      showlist.prepend('<li>'+queue[(queue.length)-1]+' </li>');
+      var j = queue.shift();
+      newLi =  $('#show-list >li:first');
 
-        setTimeout(function() {
-          newLi.addClass("show");
-        }, 100);
-        outoftwenty = $('#show-list >li:gt(9)');
-        outoftwenty.addClass("hide");
-        $('#show-list li.hide').remove()
-      });
-    }
+      setTimeout(function() {
+        newLi.addClass("show");
+      }, 100);
+      outoftwenty = $('#show-list >li:gt(9)');
+      outoftwenty.addClass("hide");
+      $('#show-list li.hide').remove()
+    });
   }
 });
