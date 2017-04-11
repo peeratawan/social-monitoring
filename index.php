@@ -123,6 +123,7 @@
 			var twitter_data_box = $('div.twitter-data-mongo').first();
 			var twitter_data = twitter_data_box.children('.username').text();
 			twitter_data += "<br>" + twitter_data_box.children('.screen_name').text();
+			twitter_data += "<br>" + twitter_data_box.children('.text').text();
 			twitter_data_box.remove();
 			queue.push(twitter_data);
 			queue2.push('auto');
@@ -156,6 +157,7 @@
 			echo "<div class=\"twitter-data-mongo\">";
 			echo "<p class=\"username\">" . $document["username"] . "</p>";
 			echo "<p class=\"screen_name\">@" . $document["screen_name"] . "</p>";
+			echo "<p class=\"text\">" . $document["text"] . "</p>";
 			echo "</div>";
 		}
 	?>
