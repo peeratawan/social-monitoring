@@ -120,8 +120,10 @@
 		outoftwenty.addClass("hide");
 		//setTimeout());
 		function autoAdd(){
-			var twitter_data = $('p.hidden-queue').first().text();
-			$('p.hidden-queue').first().remove();
+			var twitter_data_box = $('div.twitter-data-mongo').first();
+			var twitter_data = twitter_data_box.children('.username').text();
+			twitter_data += "<br>" + twitter_data_box.children('.screen_name').text();
+			twitter_data_box.remove();
 			queue.push(twitter_data);
 			queue2.push('auto');
 			showlist2.prepend('<li>'+queue2[(queue2.length)-1]+' </li>');
@@ -151,7 +153,10 @@
 		$collection = $db->twitter;
 		$cursor = $collection->find();
 		foreach ($cursor as $document) {
-			 echo "<p class=\"hidden-queue\">" . $document["username"] . "</p>";
+			echo "<div class=\"twitter-data-mongo\">";
+			echo "<p class=\"username\">" . $document["username"] . "</p>";
+			echo "<p class=\"screen_name\">@" . $document["screen_name"] . "</p>";
+			echo "</div>";
 		}
 	?>
 </body>
