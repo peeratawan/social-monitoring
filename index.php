@@ -119,9 +119,11 @@
 		outoftwenty.addClass("hide");
 		//setTimeout());
 		function autoAdd(){
-			queue.push('auto');
+			var twitter_data = $('p.hidden-queue').first().text();
+			$('p.hidden-queue').first().remove();
+			queue.push(twitter_data);
 			queue2.push('auto');
-			showlist2.prepend('<li>'+queue[(queue2.length)-1]+' </li>');
+			showlist2.prepend('<li>'+queue2[(queue2.length)-1]+' </li>');
 			showlist.prepend('<li>'+queue[(queue.length)-1]+' </li>');
 			var j = queue.shift();
 			var j2 = queue2.shift();
@@ -142,5 +144,14 @@
 		}
 		</script>
 	</div>
+	<?php
+		$m = new MongoClient();
+		$db = $m->SocialMonitor;
+		$collection = $db->twitter;
+		$cursor = $collection->find();
+		foreach ($cursor as $document) {
+			 echo "<p class=\"hidden-queue\">" . $document["username"] . "</p>";
+		}
+	?>
 </body>
 </html>

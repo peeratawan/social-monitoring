@@ -56,12 +56,15 @@ h4 {
 	color:yellow;
 }
 .show-list > li{
+	margin-left: 100px;
 	list-style: none;
 	display: block;
-	height: 30px;
+	/*height: 30px;*/
+	height: auto;
+	min-height: 75px;
 	padding-left: 10px;
 	margin-bottom: 5px;
-	width: 50px;
+	width: 350px;
 	background-color: #edeae1;
 	transition: all 0.4s ease-out;
 	opacity: 0;
@@ -69,4 +72,8 @@ h4 {
 }
 .show-list > li.show{
 	opacity: 1;
+}
+
+.hidden-queue {
+	display: none;
 }
