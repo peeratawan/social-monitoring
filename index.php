@@ -97,19 +97,5 @@
 			</div>
 		</div>
 	</div>
-	<!-- <?php
-		$m = new MongoClient();
-		$db = $m->SocialMonitor;
-		$collection = $db->twitter;
-		$cursor = $collection->find();
-		foreach ($cursor as $document) {
-			echo "<div class=\"twitter-data-mongo\">";
-			echo "<p class=\"username\">" . $document["username"] . "</p>";
-			echo "<p class=\"screen_name\">@" . $document["screen_name"] . "</p>";
-			echo "<p class=\"text\">" . $document["text"] . "</p>";
-			echo "<p class=\"collected_time\">" . $document["collected_time"] . "</p>";
-			echo "</div>";
-		}
-	?> -->
 </body>
 </html>
