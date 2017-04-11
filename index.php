@@ -97,7 +97,7 @@
 			</div>
 		</div>
 	</div>
-	<?php
+	<!-- <?php
 		$m = new MongoClient();
 		$db = $m->SocialMonitor;
 		$collection = $db->twitter;
@@ -110,6 +110,6 @@
 			echo "<p class=\"collected_time\">" . $document["collected_time"] . "</p>";
 			echo "</div>";
 		}
-	?>
+	?> -->
 </body>
 </html>
