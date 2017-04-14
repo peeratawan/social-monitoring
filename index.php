@@ -10,12 +10,13 @@
 
 <!--linkre-->
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="style.css">
 
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="script.js"></script>
+		<script src="asdf.js"></script>
 	</head>
 
 	<body>
@@ -50,7 +51,7 @@
 						</div>
 						<!-- <h1>eieieiei</h1> -->
 						<div>
-						 	<ul id="show-list" class="show-list"></ul>
+						 	<ul id="show-list" class="show-list twitter"></ul>
 						</div>
 						<!-- <h1>eieieiei</h1> -->
 					</div>
@@ -61,7 +62,7 @@
 						<!-- <h1>eiei</h1>-->
 						<!-- <div> -->
 							<!-- <h1>eiei</h1> -->
-							<ul id="show-list2" class="show-list"></ul>
+							<ul id="show-list2" class="show-list pantip"></ul>
 
 						<!-- </div> -->
 						<!-- <h1>eieieiei</h1> -->

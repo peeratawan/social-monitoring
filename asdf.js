@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+  // alert('hello');
   var showlist = $('#show-list');
   var newLi =  $('#show-list:first');
   // var showlist2 = $('#show-list2');
@@ -42,7 +43,7 @@ $( document ).ready(function() {
   // }
   function getData() {
     $.get('./twitter-stream.php?count=' + twitter_count, function(data) {
-      console.log(data);
+      // console.log(data);
       data = JSON.parse(data);
       if(data === null) {
         return;
@@ -54,7 +55,7 @@ $( document ).ready(function() {
       if(twitter_count < 9) {
         twitter_count++;
       } else {
-        var newest = $('#show-list > li').first().text();
+        var newest = $('.show-list.twitter li').first().text();
         var compare = twitter_data;
         while(compare.search('<br>') !== -1) {
           compare = compare.replace('<br>', '');
@@ -69,17 +70,19 @@ $( document ).ready(function() {
           return;
         }
       }
+      var link = 'http://www.twitter.com/' + data['user_id'] + '/status/' + data['id_str'];
       queue.push(twitter_data);
-      showlist.prepend('<li>'+queue[(queue.length)-1]+' </li>');
+      showlist.prepend('<a href="' + link + '" target="_blank">' + '<li>'+queue[(queue.length)-1]+'</li></a>');
+      // showlist.prepend('<li>'+queue[(queue.length)-1]+'</li>');
       var j = queue.shift();
-      newLi =  $('#show-list >li:first');
+      newLi =  $('.show-list.twitter li:first');
 
       setTimeout(function() {
         newLi.addClass("show");
       }, 100);
-      outoftwenty = $('#show-list >li:gt(9)');
+      outoftwenty = $('.show-list.twitter li:gt(9)');
       outoftwenty.addClass("hide");
-      $('#show-list li.hide').remove()
+      $('.show-list.twitter li.hide').remove()
     });
   }
 });
