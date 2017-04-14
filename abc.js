@@ -49,9 +49,9 @@ $( document ).ready(function() {
         return;
       }
       var twitter_data = data['username'];
-      twitter_data += "<br>@" + data['screen_name'];
+      twitter_data += " (@" + data['screen_name'] + ')';
       twitter_data += "<br>" + data['text'];
-      twitter_data += "<br>" + data['collected_time'];
+      twitter_data += "<br><br>" + data['collected_time'];
       if(twitter_count < 9) {
         twitter_count++;
       } else {
