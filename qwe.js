@@ -73,7 +73,7 @@ $( document ).ready(function() {
       }
       var link = 'http://www.twitter.com/' + data['user_id'] + '/status/' + data['id_str'];
       queue.push(twitter_data);
-      showlist.prepend('<a href="' + link + '" target="_blank">' + '<li>'+queue[(queue.length)-1]+'</li></a>');
+      showlist.prepend('<li>' + '<a href="' + link + '" target="_blank">' + queue[(queue.length)-1]+'</a></li>');
       // showlist.prepend('<li>'+queue[(queue.length)-1]+'</li>');
       var j = queue.shift();
       newLi =  $('.show-list.twitter li:first');
