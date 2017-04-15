@@ -2,12 +2,20 @@
 	background-color: #f8f8f8;
 	border-color: #e7e7e7;
 }
+.navbar-header{
+	height: 120px;
+}
 
 #logo {
 	width: 80px;
-	margin-top: 0px;
 	margin-left: 175px;
 	margin-top: 30px;
+}
+
+.banner-detail {
+	margin-left: 300px;
+	margin-top:-80px;
+	color: #666666;
 }
 
 .row {
@@ -29,11 +37,7 @@ h4 {
 	margin-top: 2.5px;
 }
 
-.banner-detail {
-	margin-left: 300px;
-	margin-top:-80px;
-	color: #666666;
-}
+
 
 #feedbox{
 	text-align: center;
