@@ -19,22 +19,12 @@
   font-size: 17px;
 }
 
-
 .top-banner{
 	background-color: #f8f8f8;
 	margin-top: 60px;
 	height: 150px;
 }
 
-/*.navbar-header{
-	height: 150px;
-}
-
-.banner-detail {
-	margin-left: 300px;
-	margin-top:-80px;
-	color: #666666;
-}*/
 
 h1 {
 	padding: 40px 200px;
@@ -62,10 +52,6 @@ h4 {
 	height:40px;
 }
 
-.navbar-form{
- margin-top: 40px;
-}
-
 #percentage_box {
 	text-align: center;
 	margin: auto;
@@ -81,6 +67,7 @@ ul {
 	display:none;
 	color:yellow;
 }
+
 .show-list li{
 	list-style: none;
 	display: inline-block;
