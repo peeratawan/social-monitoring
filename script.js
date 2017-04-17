@@ -64,11 +64,15 @@ $( document ).ready(function() {
       if(pantip_count < 9) {
         pantip_count++;
       } else {
+        var tmp = $('ul.tmp');
         var newest = $('.show-list.pantip li').first().html();
         var compare = pantip_data;
+        tmp.prepend('<li>' + compare+ '</li>');
+        compare = $('ul.tmp li').first().html();
         if(compare === newest || pantip_data.length <= 5 ){
           return;
         }
+        console.log(newest + '\n' + compare);
       }
       queue.push(pantip_data);
       showlist2.prepend('<li class="theme-' + data['theme'] + '">' + queue[(queue.length)-1]+ '</li>');
