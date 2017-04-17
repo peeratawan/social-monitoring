@@ -1,36 +1,43 @@
-.top-banner {
-	background-color: #f8f8f8;
-	border-color: #e7e7e7;
-}
-.navbar-header{
-	height: 120px;
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+	z-index: 999; /*not overlap*/
 }
 
 #logo {
-	width: 80px;
-	margin-left: 175px;
-	margin-top: 30px;
+	width: 60px;
+	margin-left: 75px;
 }
 
-.banner-detail {
-	margin-left: 300px;
-	margin-top:-80px;
-	color: #666666;
+.navbar a {
+  float: right;
+  color: #f2f2f2;
+  padding: 14px 36px;
+  font-size: 17px;
 }
 
-.row {
-	margin-right: -15px;
-	margin-left: -15px;
+.top-banner{
+	background-color: #f8f8f8;
+	margin-top: 60px;
+	height: 150px;
+}
+
+
+h1 {
+	padding: 40px 200px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.container-fluid {
+	margin-top: 10px ;
 }
 
 .col-sm-6 {
 	width: 50%;
 	.center-block();
-}
-
-h1 {
-	font-family: 'Roboto', sans-serif;
-	font-size: 50px;
 }
 
 h4 {
@@ -43,10 +50,6 @@ h4 {
 	text-align: center;
 	color: white;
 	height:40px;
-}
-
-.navbar-form{
- margin-top: 40px;
 }
 
 #percentage_box {
@@ -64,6 +67,7 @@ ul {
 	display:none;
 	color:yellow;
 }
+
 .show-list li{
 	list-style: none;
 	display: inline-block;
