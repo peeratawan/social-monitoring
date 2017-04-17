@@ -18,7 +18,7 @@ $( document ).ready(function() {
         return;
       }
       var link = 'http://www.twitter.com/' + data['user_id'] + '/status/' + data['id_str'];
-      var twitter_data = '<a href="' + link + '" target="_blank">'
+      var twitter_data = '<a href="' + link + '" target="_blank">' + "<img src=\"" + data['profile_pic'] + "\">";
       twitter_data += "<b>" + data['username'] + "</b>";
       twitter_data += " <em class=\"screen_name\">@" + data['screen_name'] + '</em> · ' + data['collected_time'].substring(0,5);
       twitter_data += "<br>" + data['text'];
