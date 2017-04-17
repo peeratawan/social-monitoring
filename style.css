@@ -74,7 +74,8 @@ ul {
 	padding-top: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
-	width: 400px;
+	/*width: 400px;*/
+	width: 100%;
 	background-color: #edeae1;
 	transition: all 0.4s ease-out;
 	opacity: 0;
@@ -96,9 +97,47 @@ ul {
 }
 
 .show-list li:hover {
-	background-color: #e5dec9;
+	opacity: 0.8;
 }
 
 .twitter-data-mongo {
 	display: none;
+}
+
+li.theme-1 {
+	background-color: #193366;
+}
+
+li.theme-2 {
+	background-color: #222244;
+}
+
+li.theme-3 {
+	background-color: #2d2d3f;
+}
+
+em.screen_name {
+	font-style: normal;
+	color: #657786;
+}
+
+em.topic-name {
+	font-style: normal;
+	color: #ffcd05;
+}
+
+em.comment {
+	font-style: normal;
+	color: #d3c68f;
+}
+
+em.pantip-text {
+	text-decoration: none;
+	color: #c0c0c0;
+	font-style: normal;
+}
+
+em.time-user {
+	color: #90a8d1;
+	font-style: normal;
 }

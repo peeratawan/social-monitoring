@@ -17,31 +17,23 @@ $( document ).ready(function() {
       if(data === null) {
         return;
       }
-      var twitter_data = data['username'];
-      twitter_data += " (@" + data['screen_name'] + ')';
+      var twitter_data = '<a href="' + link + '" target="_blank">'
+      twitter_data += "<b>" + data['username'] + "</b>";
+      twitter_data += " <em class=\"screen_name\">@" + data['screen_name'] + '</em> · ' + data['collected_time'].substring(0,5);
       twitter_data += "<br>" + data['text'];
-      twitter_data += "<br><br>" + data['collected_time'];
+      twitter_data += '</a>'
       if(twitter_count < 9) {
         twitter_count++;
       } else {
-        var newest = $('.show-list.twitter li').first().text();
+        var newest = $('.show-list.twitter li').first().html();
         var compare = twitter_data;
-        while(compare.search('<br>') !== -1) {
-          compare = compare.replace('<br>', '');
-        }
-        while(compare.search(' ') !== -1) {
-          compare = compare.replace(' ', '');
-        }
-        while(newest.search(' ') !== -1) {
-          newest = newest.replace(' ', '');
-        }
         if(compare === newest || twitter_data.length <= 5 ){
           return;
         }
       }
       var link = 'http://www.twitter.com/' + data['user_id'] + '/status/' + data['id_str'];
       queue.push(twitter_data);
-      showlist.prepend('<li>' + '<a href="' + link + '" target="_blank">' + queue[(queue.length)-1] +'</a></li>');
+      showlist.prepend('<li>' + queue[(queue.length)-1] +'</li>');
       // showlist.prepend('<li>'+queue[(queue.length)-1]+'</li>');
       var j = queue.shift();
       newLi =  $('.show-list.twitter li:first');
@@ -61,32 +53,25 @@ $( document ).ready(function() {
       if(data === null) {
         return;
       }
-      var pantip_data = 'Status : ' + data['status']
-      pantip_data += "<br>" + data['username'];
-      pantip_data += "<br>Topic : " + data['title'];
-      pantip_data += "<br><br>" + data['text'];
-      pantip_data += "<br><br>" + data['collected_time'];
+      var pantip_data = '<a href="' + link + '" target="_blank">'
+      pantip_data += "<em class=\"topic-name\">" + data['title'] + "</em>";
+      pantip_data += "<br><em class=\"comment\">" + data['status'] + "</em>";
+      pantip_data += "<br><br><em class=\"pantip-text\">" + data['text'] + "</em>";
+      pantip_data += "<br><em class=\"time-user\">" + data['username'];
+      pantip_data += "<br>" + data['post_hour'] + ':' + data['post_minute'] + "</em>";
+      pantip_data += '</a>'
       if(pantip_count < 9) {
         pantip_count++;
       } else {
-        var newest = $('.show-list.pantip li').first().text();
+        var newest = $('.show-list.pantip li').first().html();
         var compare = pantip_data;
-        while(compare.search('<br>') !== -1) {
-          compare = compare.replace('<br>', '');
-        }
-        while(compare.search(' ') !== -1) {
-          compare = compare.replace(' ', '');
-        }
-        while(newest.search(' ') !== -1) {
-          newest = newest.replace(' ', '');
-        }
         if(compare === newest || pantip_data.length <= 5 ){
           return;
         }
       }
       var link = data['link'];
       queue.push(pantip_data);
-      showlist2.prepend('<li>' + '<a href="' + link + '" target="_blank">' + queue[(queue.length)-1]+'</a></li>');
+      showlist2.prepend('<li class="theme-' + data['theme'] + '">' + queue[(queue.length)-1]+ '</li>');
       // showlist2.prepend('<li>'+queue[(queue.length)-1]+'</li>');
       var j = queue.shift();
       newLi2 =  $('.show-list.pantip li:first');
