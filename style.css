@@ -145,3 +145,25 @@ em.time-user {
 	color: #90a8d1;
 	font-style: normal;
 }
+
+iframe.wordcloud {
+  width: 1600px;
+  height: 1000px;
+  display: block;
+  border: 0;
+    -ms-transform: scale(0.25);
+    -moz-transform: scale(0.25);
+    -o-transform: scale(0.25);
+    -webkit-transform: scale(0.25);
+    transform: scale(0.25);
+
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.box-tc-related.pantip > .panel-body > .tc-related, .box-tc-related.twitter > .panel-body > .tc-related {
+  height: 250px;
+}
