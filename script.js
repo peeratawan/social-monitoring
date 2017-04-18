@@ -9,7 +9,8 @@ $( document ).ready(function() {
   var newLi2 =  $('.show-list.pantip > li:first');
   var timerPantip = setInterval(getPantipData, 500);
   var timerTwitter = setInterval(getTwitterData, 500);
-  var timerIframe = setInterval(refreshIframe, 60000);
+  var timerIframeTwitter = setInterval(refreshTwitterWC, 60000);
+  var timerIframePantip = setInterval(refreshPantipWC, 60000);
   var queue = [];
   var queue2 = [];
   var twitter_count = 0, pantip_count = 0;
@@ -120,9 +121,10 @@ $( document ).ready(function() {
       $('.show-list.pantip li.hide').remove()
     });
   }
-
-  function refreshIframe() {
-    document.getElementById('twitter-wc').contentWindow.location.reload();
-    document.getElementById('pantip-wc').contentWindow.location.reload();
+  function refreshTwitterWC() {
+    $('#twitter-wc').attr('src', $('#twitter-wc').attr('src'));
+  }
+  function refreshPantipWC() {
+    $('#pantip-wc').attr('src', $('#pantip-wc').attr('src'));
   }
 });
