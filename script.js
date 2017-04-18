@@ -7,8 +7,9 @@ $( document ).ready(function() {
   var newLi =  $('.show-list.twitter > li:first');
   var showlist2 = $('.show-list.pantip');
   var newLi2 =  $('.show-list.pantip > li:first');
-  var timePantip = setInterval(getPantipData, 500);
+  var timerPantip = setInterval(getPantipData, 500);
   var timerTwitter = setInterval(getTwitterData, 500);
+  var timerIframe = setInterval(refreshIframe, 60000);
   var queue = [];
   var queue2 = [];
   var twitter_count = 0, pantip_count = 0;
@@ -118,5 +119,10 @@ $( document ).ready(function() {
       outoftwenty.addClass("hide");
       $('.show-list.pantip li.hide').remove()
     });
+  }
+
+  function refreshIframe() {
+    document.getElementById('twitter-wc').contentWindow.location.reload();
+    document.getElementById('pantip-wc').contentWindow.location.reload();
   }
 });
