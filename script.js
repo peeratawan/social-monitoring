@@ -1,6 +1,6 @@
 $( document ).ready(function() {
   // alert('hello');
-  var max_twitter = 16;
+  var max_twitter = 17;
   var max_pantip = 10;
   var dict = {'topic': 'ตั้งกระทู้', 'comment' : 'ความคิดเห็น', 'reply' : 'ความคิดเห็นย่อย'};
   var showlist = $('.show-list.twitter');
