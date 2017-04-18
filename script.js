@@ -18,11 +18,11 @@ $( document ).ready(function() {
         return;
       }
       var link = 'http://www.twitter.com/' + data['user_id'] + '/status/' + data['id_str'];
-      var twitter_data = '<a href="' + link + '" target="_blank">' +  "<img class=\"profile_pic\" src=\"images/twitter.png\">";
-      twitter_data += "<b>" + data['username'] + "</b>";
+      var twitter_data = '<a href="' + link + '" target="_blank">' +  "<div style=\"float: left;\"><img class=\"profile_pic\" src=\"images/twitter.png\"></div>";
+      twitter_data += "<div style=\"display: block; margin-left: 70px;\"><b>" + data['username'] + "</b>";
       twitter_data += " <em class=\"screen_name\">@" + data['screen_name'] + '</em> · ' + data['collected_time'].substring(0,5);
       twitter_data += "<br>" + data['text'];
-      twitter_data += '</a>';
+      twitter_data += '</div></a>';
       var cursor = twitter_data.indexOf("@") + 1;
       var end = false;
       var link = twitter_data.indexOf('https://', cursor);
@@ -83,7 +83,7 @@ $( document ).ready(function() {
       pantip_data += "<br><em class=\"comment\">" + data['status'] + "</em>";
       pantip_data += "<br><br><em class=\"pantip-text\">" + data['text'] + "</em>";
       pantip_data += "<br><em class=\"time-user\">" + data['username'];
-      pantip_data += "<br>" + data['post_hour'] + ':' + data['post_minute'] + "</em>";
+      pantip_data += " · " + data['post_hour'] + ':' + data['post_minute'] + "</em>";
       pantip_data += '</a>'
       if(pantip_count < 9) {
         pantip_count++;
