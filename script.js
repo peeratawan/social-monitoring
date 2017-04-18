@@ -50,6 +50,7 @@ $( document ).ready(function() {
         link = twitter_data.indexOf('https://', cursor);
         hash = twitter_data.indexOf('#', cursor);
       }
+      console.log(data['text'].length);
       if(twitter_count < 9) {
         twitter_count++;
       } else {

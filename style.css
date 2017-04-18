@@ -73,20 +73,20 @@ ul {
 	display: inline-block;
 	margin: auto;
 	margin-bottom: 5px;
-	height: auto;
-	min-height: 125px;
+	height: 100%;
+	min-height: 70px;
 	padding-top: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
-	/*width: 400px;*/
+  padding-bottom: 10px;
 	width: 100%;
 	background-color: #edeae1;
 	transition: all 0.4s ease-out;
 	opacity: 0;
-	height: 2em;
 	border-radius: 10px;
 	font-family: 'Kanit', sans-serif;
 }
+
 .show-list li.show{
 	opacity: 1;
 }
