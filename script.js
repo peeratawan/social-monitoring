@@ -1,10 +1,10 @@
 $( document ).ready(function() {
   // alert('hello');
+  var dict = {'topic': 'ตั้งกระทู้', 'comment' : 'ความคิดเห็น', 'reply' : 'ความคิดเห็นย่อย'};
   var showlist = $('.show-list.twitter');
   var newLi =  $('.show-list.twitter > li:first');
   var showlist2 = $('.show-list.pantip');
   var newLi2 =  $('.show-list.pantip > li:first');
-  // var myTimer = setInterval(autoAdd, 2000);
   var timePantip = setInterval(getPantipData, 500);
   var timerTwitter = setInterval(getTwitterData, 500);
   var queue = [];
@@ -40,8 +40,12 @@ $( document ).ready(function() {
           space = twitter_data.length - '</a>'.length;
           end = true;
         }
-        var skip = cursor + ("<em class=\"link\">" + twitter_data.substring(cursor, space) +"</em>").length;
-        twitter_data = twitter_data.substring(0,cursor) + "<em class=\"link\">" + twitter_data.substring(cursor, space) +"</em>" + twitter_data.substring(space);
+        var orange = "<em class=\"link\">" + twitter_data.substring(cursor, space) +"</em>";
+        if(cursor == link) {
+          orange = '<br>' + orange;
+        }
+        var skip = cursor + orange.length;
+        twitter_data = twitter_data.substring(0,cursor) + orange + twitter_data.substring(space);
         cursor = skip + 1;
         link = twitter_data.indexOf('https://', cursor);
         hash = twitter_data.indexOf('#', cursor);
@@ -64,7 +68,7 @@ $( document ).ready(function() {
 
       setTimeout(function() {
         newLi.addClass("show");
-      }, 100);
+      }, 50);
       outoftwenty = $('.show-list.twitter li:gt(9)');
       outoftwenty.addClass("hide");
       $('.show-list.twitter li.hide').remove()
@@ -80,7 +84,7 @@ $( document ).ready(function() {
       var link = data['link'];
       var pantip_data = '<a href="' + link + '" target="_blank">'
       pantip_data += "<em class=\"topic-name\">" + data['title'] + "</em>";
-      pantip_data += "<br><em class=\"comment\">" + data['status'] + "</em>";
+      pantip_data += "<br><em class=\"comment\">" + dict[data['status']] + "</em>";
       pantip_data += "<br><br><em class=\"pantip-text\">" + data['text'] + "</em>";
       pantip_data += "<br><em class=\"time-user\">" + data['username'];
       pantip_data += " · " + data['post_hour'] + ':' + data['post_minute'] + "</em>";
@@ -106,7 +110,7 @@ $( document ).ready(function() {
 
       setTimeout(function() {
         newLi2.addClass("show");
-      }, 100);
+      }, 50);
       outoftwenty = $('.show-list.pantip li:gt(9)');
       outoftwenty.addClass("hide");
       $('.show-list.pantip li.hide').remove()
