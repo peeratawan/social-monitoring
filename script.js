@@ -1,5 +1,7 @@
 $( document ).ready(function() {
   // alert('hello');
+  var max_twitter = 16;
+  var max_pantip = 10;
   var dict = {'topic': 'ตั้งกระทู้', 'comment' : 'ความคิดเห็น', 'reply' : 'ความคิดเห็นย่อย'};
   var showlist = $('.show-list.twitter');
   var newLi =  $('.show-list.twitter > li:first');
@@ -51,7 +53,7 @@ $( document ).ready(function() {
         hash = twitter_data.indexOf('#', cursor);
       }
       console.log(data['text'].length);
-      if(twitter_count < 9) {
+      if(twitter_count < max_twitter - 1) {
         twitter_count++;
       } else {
         var newest = $('.show-list.twitter li').first().html();
@@ -70,7 +72,7 @@ $( document ).ready(function() {
       setTimeout(function() {
         newLi.addClass("show");
       }, 50);
-      outoftwenty = $('.show-list.twitter li:gt(9)');
+      outoftwenty = $('.show-list.twitter li:gt(' + (max_twitter - 1) + ')');
       outoftwenty.addClass("hide");
       $('.show-list.twitter li.hide').remove()
     });
@@ -90,7 +92,7 @@ $( document ).ready(function() {
       pantip_data += "<br><em class=\"time-user\">" + data['username'];
       pantip_data += " · " + data['post_hour'] + ':' + data['post_minute'] + "</em>";
       pantip_data += '</a>'
-      if(pantip_count < 9) {
+      if(pantip_count < max_pantip - 1) {
         pantip_count++;
       } else {
         var tmp = $('ul.tmp');
@@ -112,7 +114,7 @@ $( document ).ready(function() {
       setTimeout(function() {
         newLi2.addClass("show");
       }, 50);
-      outoftwenty = $('.show-list.pantip li:gt(9)');
+      outoftwenty = $('.show-list.pantip li:gt(' + (max_pantip - 1) +')');
       outoftwenty.addClass("hide");
       $('.show-list.pantip li.hide').remove()
     });
