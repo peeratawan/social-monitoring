@@ -18,11 +18,34 @@ $( document ).ready(function() {
         return;
       }
       var link = 'http://www.twitter.com/' + data['user_id'] + '/status/' + data['id_str'];
-      var twitter_data = '<a href="' + link + '" target="_blank">' + "<img src=\"" + data['profile_pic'] + "\">";
+      var twitter_data = '<a href="' + link + '" target="_blank">' +  "<img class=\"profile_pic\" src=\"images/twitter.png\">";
       twitter_data += "<b>" + data['username'] + "</b>";
       twitter_data += " <em class=\"screen_name\">@" + data['screen_name'] + '</em> · ' + data['collected_time'].substring(0,5);
       twitter_data += "<br>" + data['text'];
-      twitter_data += '</a>'
+      twitter_data += '</a>';
+      var cursor = twitter_data.indexOf("@") + 1;
+      var end = false;
+      var link = twitter_data.indexOf('https://', cursor);
+      var hash = twitter_data.indexOf('#', cursor);
+      while(link !== -1 || hash !== -1) {
+        if(link !== -1 && link < hash) {
+          cursor = link;
+        } else if(hash !== -1 && hash < link) {
+          cursor = hash;
+        } else {
+          cursor = (link > hash) ? link : hash;
+        }
+        var space = twitter_data.indexOf(' ', cursor + 1);
+        if(space === -1) {
+          space = twitter_data.length;
+          end = true;
+        }
+        var skip = cursor + ("<em class=\"link\">" + twitter_data.substring(cursor, space) +"</em>").length;
+        twitter_data = twitter_data.substring(0,cursor) + "<em class=\"link\">" + twitter_data.substring(cursor, space) +"</em>" + twitter_data.substring(space);
+        cursor = skip + 1;
+        link = twitter_data.indexOf('https://', cursor);
+        hash = twitter_data.indexOf('#', cursor);
+      }
       if(twitter_count < 9) {
         twitter_count++;
       } else {
@@ -72,7 +95,7 @@ $( document ).ready(function() {
         if(compare === newest || pantip_data.length <= 5 ){
           return;
         }
-        console.log(newest + '\n' + compare);
+        // console.log(newest + '\n' + compare);
       }
       queue.push(pantip_data);
       showlist2.prepend('<li class="theme-' + data['theme'] + '">' + queue[(queue.length)-1]+ '</li>');
