@@ -37,7 +37,7 @@ $( document ).ready(function() {
         }
         var space = twitter_data.indexOf(' ', cursor + 1);
         if(space === -1) {
-          space = twitter_data.length - '</a>'.length;
+          space = twitter_data.length - '</div></a>'.length;
           end = true;
         }
         var orange = "<em class=\"link\">" + twitter_data.substring(cursor, space) +"</em>";
