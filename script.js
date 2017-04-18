@@ -37,7 +37,7 @@ $( document ).ready(function() {
         }
         var space = twitter_data.indexOf(' ', cursor + 1);
         if(space === -1) {
-          space = twitter_data.length;
+          space = twitter_data.length - '</a>'.length;
           end = true;
         }
         var skip = cursor + ("<em class=\"link\">" + twitter_data.substring(cursor, space) +"</em>").length;
@@ -51,6 +51,7 @@ $( document ).ready(function() {
       } else {
         var newest = $('.show-list.twitter li').first().html();
         var compare = twitter_data;
+        // console.log(newest + '\n' + compare);
         if(compare === newest || twitter_data.length <= 5 ){
           return;
         }
